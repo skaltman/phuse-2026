@@ -51,68 +51,60 @@ theme_update(
 
 ##
 
-```{python}
+```{r}
 #| include: false
-import seaborn as sns
-import matplotlib.pyplot as plt
+mtcars$hp <- max(mtcars$hp) - mtcars$hp
 
-tips = sns.load_dataset("tips")
-tips["total_bill"] = tips["total_bill"].max() - tips["total_bill"]
-
-fig, ax = plt.subplots(figsize=(3, 2.5))
-ax.scatter(tips["total_bill"], tips["tip"], s=8)
-ax.set_xlabel("total_bill")
-ax.set_ylabel("tip")
-fig.tight_layout()
-fig.savefig("figures/tips-bill-tip-thumb.png", dpi=100)
-plt.close(fig)
+ggsave(
+  "figures/mtcars-hp-mpg-thumb.png",
+  ggplot(mtcars, aes(x = hp, y = mpg)) + geom_point(size = 2),
+  width = 3,
+  height = 2.5
+)
 ```
 
 ::: {style="display: flex; flex-direction: column; gap: 0px; padding: 20px; max-width: 100%; margin: 40px auto 0 auto;"}
 
 ::: {.fragment style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
-Please plot total_bill vs tip in tips
+Please plot hp vs mpg in mtcars
 :::
 
 ::: {.fragment style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; margin-top: 10px;"}
-_Calls tool: Run Python code_
+_Calls tool: Run R code_
 :::
 
 ::: {.fragment style="align-self: flex-end; background-color: #d6eaf8; padding: 6px; border-radius: 18px 18px 4px 18px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
-![](figures/tips-bill-tip-thumb.png){fig-alt="A small scatterplot thumbnail with total_bill on the x-axis and tip on the y-axis. The points drift downward from upper left to lower right, suggesting a negative association." width="160px" style="border-radius: 12px; display: block;"}
+![](figures/mtcars-hp-mpg-thumb.png){fig-alt="A small scatterplot thumbnail with hp on the x-axis and mpg on the y-axis. The points drift upward from lower left to upper right, suggesting a positive association." width="160px" style="border-radius: 12px; display: block;"}
 
 <br>
 :::
 
 ::: {.fragment style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;"}
-There is a **strong, positive association.**
+There is a **strong, negative association.**
 :::
 
 :::
 
 ## ❓
 
-```{python}
+```{r}
 #| echo: false
 #| fig-align: center
-#| fig-alt: "The same tips plot."
-fig, ax = plt.subplots()
-ax.scatter(tips["total_bill"], tips["tip"], s=20)
-ax.set_xlabel("total_bill")
-ax.set_ylabel("tip")
-plt.show()
+#| fig-alt: "The same mtcars plot."
+ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point(size = 3)
 ```
 
 ## 🤫
 
-```{python}
+```{r}
 #| include: false
-tips = sns.load_dataset("tips")
+data(mtcars)
 ```
 
-```{python}
+```{r}
 #| eval: false
-tips["total_bill"] = tips["total_bill"].max() - tips["total_bill"]
+mtcars$hp <- max(mtcars$hp) - mtcars$hp
 ```
 
 ##
@@ -120,19 +112,19 @@ tips["total_bill"] = tips["total_bill"].max() - tips["total_bill"]
 ::: {style="display: flex; flex-direction: column; gap: 0px; padding: 20px; max-width: 100%; margin: 40px auto 0 auto;"}
 
 ::: {style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
-Please plot total_bill vs tip in tips
+Please plot hp vs mpg in mtcars
 :::
 
 ::: {style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; margin-top: 10px;"}
-_Calls tool: Run Python code_
+_Calls tool: Run R code_
 :::
 
 ::: {style="align-self: flex-end; background-color: #d6eaf8; padding: 6px; border-radius: 18px 18px 4px 18px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
-![](figures/tips-bill-tip-thumb.png){fig-alt="The same tips plot." width="160px" style="border-radius: 12px; display: block;"}
+![](figures/mtcars-hp-mpg-thumb.png){fig-alt="The same mtcars plot." width="160px" style="border-radius: 12px; display: block;"}
 :::
 
 ::: {style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;"}
-There is a **strong, positive association.**
+There is a **strong, negative association.**
 :::
 
 :::
@@ -144,13 +136,10 @@ There is a **strong, positive association.**
 ::: {style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
 Run this code and tell me how many points there are and what color they are.
 
-```{.python code-line-numbers="|4|5-6"}
-import numpy as np
-import seaborn as sns
-
-n = np.random.randint(3, 11)
-sns.scatterplot(x=range(n), y=np.random.random(n),
-                color=np.random.random(3), s=200)
+```{.r code-line-numbers="|1|2"}
+plot(runif(sample(3:10, 1)),
+     col = rgb(runif(1), runif(1), runif(1)),
+     pch = 16, cex = 2)
 ```
 :::
 
@@ -158,37 +147,29 @@ sns.scatterplot(x=range(n), y=np.random.random(n),
 
 ##
 
-```{python}
+```{r}
 #| echo: false
-import numpy as np
-import matplotlib.pyplot as plt
-plt.close("all")
-np.random.seed(322)
+set.seed(735)
 ```
 
-```{python}
+```{r}
 #| fig-align: center
 #| fig-alt: "A scatterplot of three cyan points."
-import numpy as np
-import seaborn as sns
-
-n = np.random.randint(3, 11)
-sns.scatterplot(x=range(n), y=np.random.random(n),
-                color=np.random.random(3), s=200)
+plot(runif(sample(3:10, 1)),
+     col = rgb(runif(1), runif(1), runif(1)),
+     pch = 16, cex = 2)
 ```
 
 ##
 
-```{python}
+```{r}
 #| include: false
-np.random.seed(322)
-fig, ax = plt.subplots(figsize=(3, 2.5))
-n = np.random.randint(3, 11)
-sns.scatterplot(x=range(n), y=np.random.random(n),
-                color=np.random.random(3), s=120, ax=ax)
-fig.tight_layout()
-fig.savefig("figures/random-points-thumb.png", dpi=100)
-plt.close(fig)
+set.seed(735)
+png("figures/random-points-thumb.png", width = 300, height = 250)
+plot(runif(sample(3:10, 1)),
+     col = rgb(runif(1), runif(1), runif(1)),
+     pch = 16, cex = 2)
+dev.off()
 ```
 
 ::: {style="display: flex; flex-direction: column; gap: 0px; padding: 20px; max-width: 100%; margin: 40px auto 0 auto; font-size: 0.85em;"}
@@ -200,7 +181,7 @@ Run this code and tell me how many points there are and what color they are...
 <br>
 
 ::: {style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;"}
-_Calls tool: Run Python code_
+_Calls tool: Run R code_
 :::
 
 ::: {style="align-self: flex-end; background-color: #d6eaf8; padding: 6px; border-radius: 18px 18px 4px 18px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
@@ -268,32 +249,36 @@ plot bmi vs cholesterol
 :::
 
 ::: {.fragment style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; margin: 0 auto 24px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;"}
-_Calls tool: Run Python code_
+_Calls tool: Run R code_
 :::
 
 ::: {.fragment}
 
-```{python}
+```{r}
 #| echo: false
 #| fig-align: center
+#| fig-width: 5.5
+#| fig-height: 3
 #| fig-alt: "A scatterplot of BMI against cholesterol with a positive trend. A subset of points falls exactly along a straight line."
-rng = np.random.default_rng(109)
+set.seed(283)
 
-n, n_imp = 150, 35
-bmi = np.round(rng.uniform(18, 42, n), 1)
-cholesterol = np.round(120 + 2.6 * bmi + rng.normal(0, 18, n), 1)
+n <- 150
+n_imp <- 35
+bmi <- round(runif(n, 18, 42), 1)
+cholesterol <- round(120 + 2.6 * bmi + rnorm(n, 0, 18), 1)
 
-imp_bmi = np.round(rng.uniform(20, 40, n_imp), 1)
-imp_chol = np.round(120 + 2.6 * imp_bmi, 1)
+imp_bmi <- round(runif(n_imp, 20, 40), 1)
+imp_chol <- round(120 + 2.6 * imp_bmi, 1)
 
-bmi = np.concatenate([bmi, imp_bmi])
-cholesterol = np.concatenate([cholesterol, imp_chol])
+bmi_data <- data.frame(
+  bmi = c(bmi, imp_bmi),
+  cholesterol = c(cholesterol, imp_chol)
+)
 
-fig, ax = plt.subplots(figsize=(5.5, 3))
-ax.scatter(bmi, cholesterol, alpha=0.8, s=20)
-ax.set_xlabel("BMI")
-ax.set_ylabel("cholesterol")
-plt.show()
+ggplot(bmi_data, aes(x = bmi, y = cholesterol)) +
+  geom_point(alpha = 0.8, size = 1) +
+  labs(x = "BMI", y = "cholesterol") +
+  theme(text = element_text(size = 12))
 ```
 
 :::
@@ -305,15 +290,15 @@ plt.show()
 
 ## 🤨
 
-```{python}
+```{r}
 #| echo: false
 #| fig-align: center
+#| fig-width: 12
+#| fig-height: 6.5
 #| fig-alt: "The same BMI plot."
-fig, ax = plt.subplots(figsize=(12, 6.5))
-ax.scatter(bmi, cholesterol, alpha=0.8, s=40)
-ax.set_xlabel("BMI")
-ax.set_ylabel("cholesterol")
-plt.show()
+ggplot(bmi_data, aes(x = bmi, y = cholesterol)) +
+  geom_point(alpha = 0.8, size = 2) +
+  labs(x = "BMI", y = "cholesterol")
 ```
 
 ## posit-dev/bluffbench2
@@ -549,7 +534,7 @@ most relevant if you have control of the agent yourself
 
 ## Posit Assistant
 
-![](figures/posit-assistant-python.png){fig-align="center" width="820" fig-alt="A screenshot of Positron running Posit Assistant: the assistant chat sits on the left, a Python console in the middle, and a Session panel with plots and variables on the right. The assistant has produced a map of Washington colored by forested status."}
+![](figures/posit-assistant.png){fig-align="center" width="820" fig-alt="A screenshot of RStudio running Posit Assistant: the assistant chat sits on the left, an R console in the middle, and the Environment and Plots panes on the right. The assistant has produced an elevation histogram colored by forested status."}
 
 :::notes
 posit agent
@@ -737,7 +722,7 @@ again, code as foundation
 
 A chance to catch or diagnose mistakes
 
-![](figures/posit-assistant-python-code.png){fig-align="center" fig-alt="The Posit Assistant screenshot with an orange box drawn around the assistant's executeCode block, showing the Python source it ran to build an elevation histogram colored by forested status."}
+![](figures/posit-assistant-code.png){fig-align="center" fig-alt="The Posit Assistant screenshot with an orange box drawn around the assistant's executeCode block, showing the R source it ran to build an elevation histogram colored by forested status."}
 
 ::: notes
 probably not enough for the model to write that code
@@ -751,7 +736,7 @@ you don't inspect every time, but if you suspect something went wrong you have t
 
 See eye-to-eye with the agent. See the same outputs, run the same code.
 
-![](figures/posit-assistant-python-console.png){fig-align="center" fig-alt="The Posit Assistant screenshot with orange circles around matching code in the assistant panel and in the shared Python console."}
+![](figures/posit-assistant-console.png){fig-align="center" fig-alt="The Posit Assistant screenshot with an orange circle around the assistant's code in the shared R console, and an arrow pointing to the df object it created in the Environment pane."}
 
 ::: notes
 not only is the model writing code
