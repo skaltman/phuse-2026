@@ -4,7 +4,7 @@
     "href": "index.html#section",
     "title": "",
     "section": "",
-    "text": "Agents for Correct, Transparent, and Reproducible Data Analysis\n   \nSara Altman AI Core Team @ Posit"
+    "text": "Agents for correct, transparent, and reproducible data analysis\n   \nSara Altman AI Core Team @ Posit"
   },
   {
     "objectID": "index.html#section-1",
@@ -46,7 +46,7 @@
     "href": "index.html#section-6",
     "title": "",
     "section": "",
-    "text": "plot(runif(sample(3:10, 1)),\n     col = rgb(runif(1), runif(1), runif(1)),\n     pch = 16, cex = 2)"
+    "text": "plot(\n  runif(sample(3:10, 1)),\n  col = rgb(runif(1), runif(1), runif(1)),\n  pch = 16,\n  cex = 2\n)"
   },
   {
     "objectID": "index.html#section-7",
@@ -116,7 +116,7 @@
     "href": "index.html#section-13",
     "title": "",
     "section": "",
-    "text": "LLMs fail at tasks central to data analysis.\n\n\nFail to override priors about data\nFail to notice subtle data quality issues\n\n\n\n\nbluffbench is evidence llms fail at tasks central to data analysis\n[click]\noverride priors fail to notice subtle\nboth of these ability to not let expectations get in the way spot data quality issues in visualizations\ncore skills want any person or agent to have"
+    "text": "LLMs struggle with tasks central to data analysis.\n\n\nFail to override priors about data\nFail to notice subtle data quality issues\n\n\n\n\nbluffbench is evidence llms struggle with tasks central to data analysis\n[click]\noverride priors fail to notice subtle\nboth of these ability to not let expectations get in the way spot data quality issues in visualizations\ncore skills want any person or agent to have"
   },
   {
     "objectID": "index.html#its-a-convincing-performance",
@@ -137,7 +137,7 @@
     "href": "index.html#section-14",
     "title": "",
     "section": "",
-    "text": "1. LLMs fail at tasks central to data analysis.\n\n\nnot only do they fail, they cloak incorrect answers in confident descriptions makes it hard to tell what is correct or not"
+    "text": "1. LLMs struggle with tasks central to data analysis.\n\n\nnot only do they fail, they cloak incorrect answers in confident descriptions makes it hard to tell what is correct or not"
   },
   {
     "objectID": "index.html#section-15",
@@ -231,11 +231,25 @@
     "text": "Shared environment\nSee eye-to-eye with the agent. See the same outputs, run the same code.\n\n\nnot only is the model writing code writing it in a shared environment it has access to your same r/python session its not guessing what data you have loaded – it can see into that data in the same way you can you can audit its code by running it yourself it can inspect your objects and rerun code you ran\nthis turns out to be very useful, especially for data analysis where you are often turning the same object around and looking at it from multiple angles and transforming it\nyou’re seeing eye to eye with the agent, instead of the two of you occupying different worlds"
   },
   {
+    "objectID": "index.html#have-the-model-pause-often",
+    "href": "index.html#have-the-model-pause-often",
+    "title": "",
+    "section": "Have the model pause often",
+    "text": "Have the model pause often\n\n\nKeep pace with the agent during exploration and analysis\n\n\n\n\n\n\nso we said the first way to make it less bad if the model is wrong was having it write code the second way is having it, in some cases, pause and involve the user\nposit assistant, during open ended tasks or ones it thinks need user involvement, purposefully slows down and does shorter turns\nnotice in the screenshot how…\nthis is in contrast to how it might behave without our harness, which is to move the analysis forward with lots of code and\nlosing the user and obscuring its uncertainties or deciding its own answers to questions it should have asked user"
+  },
+  {
+    "objectID": "index.html#have-the-model-pause-often-1",
+    "href": "index.html#have-the-model-pause-often-1",
+    "title": "",
+    "section": "Have the model pause often",
+    "text": "Have the model pause often\nWhat’s the point of an analysis?\n\n(often) building an understanding of the data\n\n\nanother reason for this though for verification and transparency: the human has to keep pace and see eye-to-eye with the agent (same environment)."
+  },
+  {
     "objectID": "index.html#section-19",
     "href": "index.html#section-19",
     "title": "",
     "section": "",
-    "text": "LLMs can fail at tasks central to data analysis.\n\n\n…but they’re still useful for data analysis.\n\n\n\n• Make it easy for them to be right. • Make it matter less when they’re wrong."
+    "text": "LLMs can struggle with tasks central to data analysis.\n\n\n…but they’re still useful for data analysis.\n\n\n\n• Make it easy for them to be right. • Make it matter less when they’re wrong."
   },
   {
     "objectID": "index.html#section-20",

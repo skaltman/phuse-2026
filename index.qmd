@@ -755,6 +755,44 @@ this turns out to be very useful, especially for data analysis where you are oft
 you're seeing eye to eye with the agent, instead of the two of you occupying different worlds
 :::
 
+## Have the model pause often
+
+<div style="display: flex; align-items: center; gap: 48px; margin-top: 20px;">
+<div style="flex: 1; font-size: 1.3em; line-height: 1.5;">
+Keep pace with the agent during exploration and analysis
+</div>
+<div style="flex: 0 0 auto;">
+<img src="figures/posit-assistant-pause-often.png" alt="A screenshot of the Posit Assistant panel mid-analysis. The assistant has plotted the top 20 states by number of Spanish speakers, summarized the result in a short paragraph noting that raw counts aren't normalized by population, and paused to suggest three follow-up questions rather than continuing on its own." style="height: 580px; display: block;">
+</div>
+</div>
+
+::: notes
+so we said the first way to make it less bad if the model is wrong was having it write code
+the second way is having it, in some cases, pause and involve the user
+
+posit assistant, during open ended tasks or ones it thinks need user involvement, purposefully slows down and does shorter turns
+
+notice in the screenshot how...
+
+this is in contrast to how it might behave without our harness, which is to move the analysis forward with lots of code and
+
+losing the user and obscuring its uncertainties or deciding its own answers to questions
+it should have asked user
+:::
+
+## Have the model pause often
+
+_What's the point of an analysis?_
+
+::: {.fragment style="font-size: 1.1em; margin-top: 40px;"}
+[(often)]{style="opacity:0.6;"} building an understanding of the data
+:::
+
+::: notes
+another reason for this though
+for verification and transparency: the human has to keep pace and see eye-to-eye with the agent (same environment).
+:::
+
 ## {background-color="#093A3E"}
 
 ::: {style="display: flex; flex-direction: column; gap: 44px; max-width: 90%; margin: 60px auto 0 auto; color: #E8F0F6;"}

@@ -2,10 +2,13 @@
 backgrounds.py — generates the PHUSE SDE slide background images.
 
 Outputs (all 1920x1080):
-  hero.png / hero-bare.png — title hero: sage diagonal gradient with a faint
-    plot grid, a stream of two-tone (cream + deep-aqua) scatter markers with
-    thin dark outlines flowing in from the lower-left, and right-aligned white
-    Lato text (bare = no text, for reveal.js to overlay its own).
+  hero.png — sage diagonal gradient with a faint plot grid, a stream of
+    two-tone (cream + deep-aqua) scatter markers with thin dark outlines
+    flowing in from the lower-left, and right-aligned white Lato text.
+    (No longer used by the deck; kept for reference.)
+  hero-bare.png — title slide: the same dot composition as hero.png but on
+    the light thank-you background with the teal/orange thank-you palette,
+    no text (reveal.js overlays its own).
   thankyou-bare.png — closing slide: light background with the same faint grid
     and a sparse teal/orange scatter, a nod to the hero's points.
 
@@ -257,8 +260,30 @@ def thankyou(out="thankyou-bare.png", layout="corner"):
     print("saved", out)
 
 
+def hero_light(out="hero-bare.png"):
+    """Title-slide background: the hero's dot composition recolored to match
+    the thank-you slide — light #F6FAFD background, faint dark grid, and
+    two-tone teal/orange markers with dark-teal outlines."""
+    canvas = Image.new("RGBA", (W, H), hex2rgb("#F6FAFD") + (255,))
+    canvas.alpha_composite(grid_overlay(color=hex2rgb("#093A3E"), alpha=12))
+
+    # keep points out of the lower-right text block
+    dots = [d for d in gen_dots(1, right=0.50) if not (d[0] > 900 and d[1] > 760)]
+    rng = random.Random(908)
+    teal, accent = [], []
+    for d in dots:
+        (accent if rng.random() < 0.38 else teal).append(d)
+    for pts, col in [(teal, hex2rgb("#33C6C6")), (accent, hex2rgb("#F37748"))]:
+        canvas.alpha_composite(stamp_dots(pts, col, alpha_scale=0.42))
+    canvas.alpha_composite(stamp_dots(teal + accent, hex2rgb("#093A3E"),
+                                      sprite=_ring_sprite, alpha_scale=0.55))
+
+    canvas.convert("RGB").save(out)
+    print("saved", out)
+
+
 if __name__ == "__main__":
     main("hero.png", title_color=(255, 255, 255), sub_color=(255, 255, 255),
          author_italic=False, author_sizes=(52, 44), author_ys=(776, 852))
-    main("hero-bare.png", text=False)
+    hero_light("hero-bare.png")
     thankyou("thankyou-bare.png", layout="band")

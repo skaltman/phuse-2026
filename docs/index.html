@@ -199,9 +199,9 @@
 <h2></h2>
 <div style="display:flex; justify-content:flex-end; align-items:flex-start; min-height:80vh; padding-top:6vh; padding-right:0; margin-right:-2%;">
 <div style="width: 80%; text-align: right; font-family:'DM Sans',sans-serif;">
-<p><span style="color:#ffffff; font-size:160%; font-weight:600; line-height:1.1; display:block;">Agents for Correct, Transparent, and Reproducible Data Analysis</span></p>
+<p><span style="color:#093A3E; font-size:160%; font-weight:600; line-height:1.1; display:block;">Agents for correct, transparent, and reproducible data analysis</span></p>
 <p><br> <br> <br> <br></p>
-<p><span style="color:#ffffff; display:block; font-weight:300; font-size:0.85em;">Sara Altman</span> <span style="color:#ffffff; font-size:0.72em;">AI Core Team @ Posit</span></p>
+<p><span style="color:#093A3E; display:block; font-weight:300; font-size:0.85em;">Sara Altman</span> <span style="color:#093A3E; font-size:0.72em;">AI Core Team @ Posit</span></p>
 </div>
 </div>
 <div class="footer">
@@ -267,9 +267,12 @@
 <section id="section-6" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">plot</span>(<span class="fu">runif</span>(<span class="fu">sample</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>)),</span>
-<span id="cb3-2"><a></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>)),</span>
-<span id="cb3-3"><a></a>     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">plot</span>(</span>
+<span id="cb3-2"><a></a>  <span class="fu">runif</span>(<span class="fu">sample</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>)),</span>
+<span id="cb3-3"><a></a>  <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>)),</span>
+<span id="cb3-4"><a></a>  <span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb3-5"><a></a>  <span class="at">cex =</span> <span class="dv">2</span></span>
+<span id="cb3-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A scatterplot of three cyan points." width="960"></section>
@@ -390,7 +393,7 @@
 <section id="section-13" class="slide level2" data-background-color="#093A3E">
 <h2></h2>
 <div style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;">
-<p><br> LLMs fail at tasks central to data analysis.</p>
+<p><br> LLMs struggle with tasks central to data analysis.</p>
 <div style="font-size: 0.6em; font-weight: 400; margin-left: 1.5em;">
 <ul>
 <li class="fragment">Fail to override priors about data</li>
@@ -399,7 +402,7 @@
 </div>
 </div>
 <aside class="notes">
-<p>bluffbench is evidence llms fail at tasks central to data analysis</p>
+<p>bluffbench is evidence llms struggle with tasks central to data analysis</p>
 <p>[click]</p>
 <p>override priors fail to notice subtle</p>
 <p>both of these ability to not let expectations get in the way spot data quality issues in visualizations</p>
@@ -480,7 +483,7 @@
 <section id="section-14" class="slide level2" data-background-color="#093A3E">
 <h2></h2>
 <div style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;">
-<p><br> <br> <br> 1. LLMs fail at tasks central to data analysis.</p>
+<p><br> <br> <br> 1. LLMs struggle with tasks central to data analysis.</p>
 </div>
 <aside class="notes">
 <p>not only do they fail, they cloak incorrect answers in confident descriptions makes it hard to tell what is correct or not</p>
@@ -817,11 +820,59 @@ Make it matter less when they’re wrong.
           display:block!important;
       }</style></aside>
 </section>
+<section id="have-the-model-pause-often" class="slide level2">
+<h2>Have the model pause often</h2>
+<div style="display: flex; align-items: center; gap: 48px; margin-top: 20px;">
+<div style="flex: 1; font-size: 1.3em; line-height: 1.5;">
+<p>Keep pace with the agent during exploration and analysis</p>
+</div>
+<div style="flex: 0 0 auto;">
+<p><img src="figures/posit-assistant-pause-often.png" alt="A screenshot of the Posit Assistant panel mid-analysis. The assistant has plotted the top 20 states by number of Spanish speakers, summarized the result in a short paragraph noting that raw counts aren't normalized by population, and paused to suggest three follow-up questions rather than continuing on its own." style="height: 580px; display: block;"></p>
+</div>
+</div>
+<aside class="notes">
+<p>so we said the first way to make it less bad if the model is wrong was having it write code the second way is having it, in some cases, pause and involve the user</p>
+<p>posit assistant, during open ended tasks or ones it thinks need user involvement, purposefully slows down and does shorter turns</p>
+<p>notice in the screenshot how…</p>
+<p>this is in contrast to how it might behave without our harness, which is to move the analysis forward with lots of code and</p>
+<p>losing the user and obscuring its uncertainties or deciding its own answers to questions it should have asked user</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="have-the-model-pause-often-1" class="slide level2">
+<h2>Have the model pause often</h2>
+<p><em>What’s the point of an analysis?</em></p>
+<div class="fragment" style="font-size: 1.1em; margin-top: 40px;">
+<p><span style="opacity:0.6;">(often)</span> building an understanding of the data</p>
+</div>
+<aside class="notes">
+<p>another reason for this though for verification and transparency: the human has to keep pace and see eye-to-eye with the agent (same environment).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="section-19" class="slide level2" data-background-color="#093A3E">
 <h2></h2>
 <div style="display: flex; flex-direction: column; gap: 44px; max-width: 90%; margin: 60px auto 0 auto; color: #E8F0F6;">
 <div class="fragment">
-<p><span style="font-weight: 700; font-size: 1.4em;">LLMs can fail at tasks central to data analysis.</span></p>
+<p><span style="font-weight: 700; font-size: 1.4em;">LLMs can struggle with tasks central to data analysis.</span></p>
 </div>
 <div class="fragment">
 <p><span style="font-weight: 700; font-size: 1.4em;">…but they’re still useful for data analysis.</span></p>
