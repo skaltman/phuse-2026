@@ -18,15 +18,15 @@ knitr:
 
 ::: {style="display:flex; justify-content:flex-end; align-items:flex-start; min-height:80vh; padding-top:6vh; padding-right:0; margin-right:-2%;"}
 ::: {style="width: 80%; text-align: right; font-family:'DM Sans',sans-serif;"}
-<span style="color:#ffffff; font-size:160%; font-weight:600; line-height:1.1; display:block;">Agents for Correct, Transparent, and Reproducible Data Analysis</span>
+<span style="color:#093A3E; font-size:160%; font-weight:600; line-height:1.1; display:block;">Agents for correct, transparent, and reproducible data analysis</span>
 
 <br>
 <br>
 <br>
 <br>
 
-<span style="color:#ffffff; display:block; font-weight:300; font-size:0.85em;">Sara Altman</span>
-<span style="color:#ffffff; font-size:0.72em;">AI Core Team @ Posit</span>
+<span style="color:#093A3E; display:block; font-weight:300; font-size:0.85em;">Sara Altman</span>
+<span style="color:#093A3E; font-size:0.72em;">AI Core Team @ Posit</span>
 :::
 :::
 
@@ -153,9 +153,12 @@ set.seed(735)
 ```{r}
 #| fig-align: center
 #| fig-alt: "A scatterplot of three cyan points."
-plot(runif(sample(3:10, 1)),
-     col = rgb(runif(1), runif(1), runif(1)),
-     pch = 16, cex = 2)
+plot(
+  runif(sample(3:10, 1)),
+  col = rgb(runif(1), runif(1), runif(1)),
+  pch = 16,
+  cex = 2
+)
 ```
 
 ##
@@ -164,9 +167,12 @@ plot(runif(sample(3:10, 1)),
 #| include: false
 set.seed(735)
 png("figures/random-points-thumb.png", width = 300, height = 250)
-plot(runif(sample(3:10, 1)),
-     col = rgb(runif(1), runif(1), runif(1)),
-     pch = 16, cex = 2)
+plot(
+  runif(sample(3:10, 1)),
+  col = rgb(runif(1), runif(1), runif(1)),
+  pch = 16,
+  cex = 2
+)
 dev.off()
 ```
 
@@ -350,7 +356,7 @@ _Models fail to notice subtle data quality issues that data scientists would not
 
 ::: {style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;"}
 <br>
-LLMs fail at tasks central to data analysis.
+LLMs struggle with tasks central to data analysis.
 
 ::: {.incremental style="font-size: 0.6em; font-weight: 400; margin-left: 1.5em;"}
 - Fail to override priors about data
@@ -360,7 +366,7 @@ LLMs fail at tasks central to data analysis.
 
 ::: notes
 bluffbench is evidence
-llms fail at tasks central to data analysis
+llms struggle with tasks central to data analysis
 
 [click]
 
@@ -441,7 +447,7 @@ if you didn't know what the plot looked like, you wouldn't be able to disentangl
 <br>
 <br>
 <br>
-1. LLMs fail at tasks central to data analysis.
+1. LLMs struggle with tasks central to data analysis.
 :::
 
 ::: notes
@@ -754,7 +760,7 @@ you're seeing eye to eye with the agent, instead of the two of you occupying dif
 ::: {style="display: flex; flex-direction: column; gap: 44px; max-width: 90%; margin: 60px auto 0 auto; color: #E8F0F6;"}
 
 ::: {.fragment}
-[LLMs can fail at tasks central to data analysis.]{style="font-weight: 700; font-size: 1.4em;"}
+[LLMs can struggle with tasks central to data analysis.]{style="font-weight: 700; font-size: 1.4em;"}
 :::
 
 ::: {.fragment}
