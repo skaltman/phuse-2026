@@ -185,10 +185,9 @@ def main(out="hero.png", text=True, title_color=(255, 255, 255),
             d.text((cx, y), ch, font=f, fill=c)
             cx += d.textlength(ch, font=f) + tr
 
-    dr("It’s (still) very", 140, fnt("Lato-Black.ttf", 124), title_color)
-    dr("bad to be wrong", 278, fnt("Lato-Black.ttf", 124), title_color)
-    drs("AGENTS FOR CORRECT, TRANSPARENT,", 476, fnt("Lato-Medium.ttf", 56), sub_color)
-    drs("AND REPRODUCIBLE DATA ANALYSIS", 550, fnt("Lato-Medium.ttf", 56), sub_color)
+    dr("Agents for Correct,", 140, fnt("Lato-Black.ttf", 96), title_color)
+    dr("Transparent, and", 250, fnt("Lato-Black.ttf", 96), title_color)
+    dr("Reproducible Data Analysis", 360, fnt("Lato-Black.ttf", 96), title_color)
     af = "Lato-MediumItalic.ttf" if author_italic else "Lato-Medium.ttf"
     dr("Sara Altman", author_ys[0], fnt(af, author_sizes[0]), WHITE)
     dr("AI Core Team @ Posit", author_ys[1], fnt("Lato-Medium.ttf", author_sizes[1]), WHITE)

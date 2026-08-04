@@ -1,8 +1,8 @@
-# It's (still) very bad to be wrong
+# Agents for Correct, Transparent, and Reproducible Data Analysis
 
-<a href="https://skaltman.github.io/phuse-2026"><img src="figures/title-slide.png" alt="Title slide: It's (still) very bad to be wrong — Agents for Correct, Transparent, and Reproducible Data Analysis, by Sara Altman, AI Core Team @ Posit" width="100%" /></a>
+<a href="https://skaltman.github.io/phuse-2026"><img src="figures/title-slide.png" alt="Title slide: Agents for Correct, Transparent, and Reproducible Data Analysis, by Sara Altman, AI Core Team @ Posit" width="100%" /></a>
 
-Source code and slides for "It's (still) very bad to be wrong: Agents for Correct, Transparent, and Reproducible Data Analysis," delivered at a PHUSE SDE. The rendered slides are [here](https://skaltman.github.io/phuse-2026).
+Source code and slides for "Agents for Correct, Transparent, and Reproducible Data Analysis," delivered at a PHUSE SDE. The rendered slides are [here](https://skaltman.github.io/phuse-2026).
 
 Some resources noted in the talk:
 
