@@ -11,46 +11,39 @@
     "href": "index.html#section-1",
     "title": "",
     "section": "",
-    "text": "Please plot hp vs mpg in mtcars\n\n\nCalls tool: Run R code\n\n\n\n\n\n\nThere is a strong, negative association."
+    "text": "Please plot hp vs mpg in mtcars\n\n\nCalls tool: Run R code\n\n\n\n\n\n\nThere is a strong, negative association.\n\n\n\nabout a year ago, we noticed some strange behavior in a coding agent we were working on we gave the agent a way to interpret create and interpret plots so you could say… make a plot of mtcars … interpret… only problem is if you look closely that’s not a negative relationship"
   },
   {
     "objectID": "index.html#section-2",
     "href": "index.html#section-2",
     "title": "",
     "section": "❓",
-    "text": "❓"
+    "text": "❓\n\n\nso whats going on? if you’re familiar with mtcars (or cars generally) you might know that mpg should decrease with horsepower which is exactly the interpretation that the model told us but it’s not what this plot shows"
   },
   {
     "objectID": "index.html#section-3",
     "href": "index.html#section-3",
     "title": "",
     "section": "🤫",
-    "text": "🤫\n\nmtcars$hp &lt;- max(mtcars$hp) - mtcars$hp"
+    "text": "🤫\n\nmtcars$hp &lt;- max(mtcars$hp) - mtcars$hp\n\n\nbehind the scenes (unbeknownst to the model) we had manipulated mtcars to reverse the relationship between mpg and hp"
   },
   {
     "objectID": "index.html#section-4",
     "href": "index.html#section-4",
     "title": "",
     "section": "",
-    "text": "Please plot hp vs mpg in mtcars\n\n\nCalls tool: Run R code\n\n\n\n\n\nThere is a strong, negative association."
+    "text": "Please plot hp vs mpg in mtcars\n\n\nCalls tool: Run R code\n\n\n\n\n\nThere is a strong, negative association.\n\n\n\nthe model appears to give us the canonical relationship not the one that’s actually in front of it\nand this would happen not just with mtcars but with a variety of well known datasets manipulate a known relationship, and the model will report what it expects to see not what’s actually in the plot"
   },
   {
     "objectID": "index.html#section-5",
     "href": "index.html#section-5",
     "title": "",
     "section": "",
-    "text": "Run this code and tell me how many points there are and what color they are.\nplot(runif(sample(3:10, 1)),\n     col = rgb(runif(1), runif(1), runif(1)),\n     pch = 16, cex = 2)"
+    "text": "plot(\n  runif(sample(3:10, 1)),\n  col = rgb(runif(1), runif(1), runif(1)),\n  pch = 16,\n  cex = 2\n)\n\n\n\nthere are a lot of hypotheses you might have for why this is happening\none is that llms (at least at the time) just don’t “see” plots very well\nmaybe for plots that don’t contradict expectations, they are relying on other info\none way to test this is to plot some basic points and ask the model to describe the number and color"
   },
   {
     "objectID": "index.html#section-6",
     "href": "index.html#section-6",
-    "title": "",
-    "section": "",
-    "text": "plot(\n  runif(sample(3:10, 1)),\n  col = rgb(runif(1), runif(1), runif(1)),\n  pch = 16,\n  cex = 2\n)"
-  },
-  {
-    "objectID": "index.html#section-7",
-    "href": "index.html#section-7",
     "title": "",
     "section": "",
     "text": "Run this code and tell me how many points there are and what color they are…\n\n\n\nCalls tool: Run R code\n\n\n\n\n\nThere are 3 cyan points.\n\n\n\n🤨\n\n\nLLMs can ‘see’ these plots just fine"
@@ -60,60 +53,60 @@
     "href": "index.html#posit-devbluffbench",
     "title": "",
     "section": "posit-dev/bluffbench",
-    "text": "posit-dev/bluffbench\n\n\nposit-dev.github.io/bluffbench"
+    "text": "posit-dev/bluffbench\n\n\nposit-dev.github.io/bluffbench\n\n\nwe turned this into a formal eval called bluffbench and wrote up the results"
   },
   {
     "objectID": "index.html#posit-devbluffbench-1",
     "href": "index.html#posit-devbluffbench-1",
     "title": "",
     "section": "posit-dev/bluffbench",
-    "text": "posit-dev/bluffbench\n\n\nposit-dev.github.io/bluffbench\n\n\nWe tried a bunch of stuff to drive those scores up and nothing worked. Hilariously, we let the model “think”, and in its thinking, it would say “Huh, that association doesn’t look like I expect”, and then turn around and say exactly what it expected to see."
+    "text": "posit-dev/bluffbench\n\n\nposit-dev.github.io/bluffbench\n\n\nand at the time, the leading frontier model did very poorly\nWe tried a bunch of stuff to drive those scores up and nothing worked. Hilariously, we let the model “think”, and in its thinking, it would say “Huh, that association doesn’t look like I expect”, and then turn around and say exactly what it expected to see."
   },
   {
     "objectID": "index.html#posit-devbluffbench-2",
     "href": "index.html#posit-devbluffbench-2",
     "title": "",
     "section": "posit-dev/bluffbench",
-    "text": "posit-dev/bluffbench\n\n\nposit-dev.github.io/bluffbench"
+    "text": "posit-dev/bluffbench\n\n\nposit-dev.github.io/bluffbench\n\n\nbest way to drive up eval scores is just to wait 6 months so we waited and the scores are much better, but still less than a human would do"
   },
   {
-    "objectID": "index.html#section-8",
-    "href": "index.html#section-8",
+    "objectID": "index.html#section-7",
+    "href": "index.html#section-7",
     "title": "",
     "section": "",
-    "text": "Models largely fail to override their own priors about data."
+    "text": "Models can fail to override their own priors about data."
+  },
+  {
+    "objectID": "index.html#section-9",
+    "href": "index.html#section-9",
+    "title": "",
+    "section": "",
+    "text": "plot stress score vs sleep\n\n\nCalls tool: Run R code\n\n\n\n\n\n\n\n\n\n\n\n\n\n🤨\n\n\nsuspiciously, some of the plots appear to fall directly on a straight line"
   },
   {
     "objectID": "index.html#section-10",
     "href": "index.html#section-10",
     "title": "",
-    "section": "",
-    "text": "plot bmi vs cholesterol\n\n\nCalls tool: Run R code\n\n\n\n\n\n\n\n\n\n\n\n\n\n🤨"
-  },
-  {
-    "objectID": "index.html#section-11",
-    "href": "index.html#section-11",
-    "title": "",
     "section": "🤨",
-    "text": "🤨"
+    "text": "🤨\n\n\nstress scores against hours of sleep — overall a plausible negative trend: more sleep, less stress but look closely: a subset of points falls exactly on a straight line through the cloud those values were imputed with a regression model so they’re not real measurements a careful analyst would spot that suspicious artifact in the plot and investigate the data further"
   },
   {
     "objectID": "index.html#posit-devbluffbench2",
     "href": "index.html#posit-devbluffbench2",
     "title": "",
     "section": "posit-dev/bluffbench2",
-    "text": "posit-dev/bluffbench2"
+    "text": "posit-dev/bluffbench2\n\n\nbluffbench2 is a second gen bluffbench that tests models ability to spot subtle data quality issue like the one you just saw the frontier models do a lot worse than on bluffbench 1"
   },
   {
-    "objectID": "index.html#section-12",
-    "href": "index.html#section-12",
+    "objectID": "index.html#section-11",
+    "href": "index.html#section-11",
     "title": "",
     "section": "",
     "text": "Models fail to notice subtle data quality issues that data scientists would not."
   },
   {
-    "objectID": "index.html#section-13",
-    "href": "index.html#section-13",
+    "objectID": "index.html#section-12",
+    "href": "index.html#section-12",
     "title": "",
     "section": "",
     "text": "LLMs struggle with tasks central to data analysis.\n\n\nFail to override priors about data\nFail to notice subtle data quality issues\n\n\n\n\nbluffbench is evidence llms struggle with tasks central to data analysis\n[click]\noverride priors fail to notice subtle\nboth of these ability to not let expectations get in the way spot data quality issues in visualizations\ncore skills want any person or agent to have"
@@ -133,22 +126,22 @@
     "text": "The answers look the same\n\n\n\n\n ❌\n\n\n ✅\n\n\n ❌\n\n\n\n\nThe problem with this performance just that the model is sometimes wrong, it’s that the wrong answers are confident and can be indistinguishable from the right ones\nwe have a clearly parabolic plot and three descriptions from the same model shared tone, shared style, shared length – but different description each time if you didn’t know what the plot looked like, you wouldn’t be able to disentangle the correct ones from the incorrect ones"
   },
   {
-    "objectID": "index.html#section-14",
-    "href": "index.html#section-14",
+    "objectID": "index.html#section-13",
+    "href": "index.html#section-13",
     "title": "",
     "section": "",
     "text": "1. LLMs struggle with tasks central to data analysis.\n\n\nnot only do they fail, they cloak incorrect answers in confident descriptions makes it hard to tell what is correct or not"
   },
   {
-    "objectID": "index.html#section-15",
-    "href": "index.html#section-15",
+    "objectID": "index.html#section-14",
+    "href": "index.html#section-14",
     "title": "",
     "section": "",
     "text": "2. LLMs are still useful for data analysis.\n\n\n\ndon’t need to throw the whole thing away\nWe shouldn’t take evidence like bluffbench to mean that LLMs are useless anywhere you value correctness.\nInstead, you have to figure out where they can fit and how to design around their limitations."
   },
   {
-    "objectID": "index.html#section-16",
-    "href": "index.html#section-16",
+    "objectID": "index.html#section-15",
+    "href": "index.html#section-15",
     "title": "",
     "section": "",
     "text": "LLMs are still useful for data analysis.\n\n\n\n\n\nMake it easy for them to be right.\n\n\nMake it matter less when they’re wrong.\n\n\n\n\n\nprevention mitigation"
@@ -175,8 +168,8 @@
     "text": "Posit Assistant\n\n\nposit agent general purpose coding and data analysis\nuse as an example"
   },
   {
-    "objectID": "index.html#section-17",
-    "href": "index.html#section-17",
+    "objectID": "index.html#section-16",
+    "href": "index.html#section-16",
     "title": "",
     "section": "",
     "text": "LLMs are still useful for data analysis.\n\n\n\n\n\nMake it easy for them to be right.\n\n\nMake it matter less when they’re wrong.\n\n\n\n\n\nneed to make it easy for the models to be right"
@@ -210,8 +203,8 @@
     "text": "Performance improves when the environment makes it easy to be right\n\n\n\n\n\n\n\n\n\n\n\n\nperformance improves when … and it turns out all of this can make a difference even without affecting the underlying model when we tried interventions in isolation in bluffbench, limited success by posit assistant largely does better than minimal harness (default bluffbench case)"
   },
   {
-    "objectID": "index.html#section-18",
-    "href": "index.html#section-18",
+    "objectID": "index.html#section-17",
+    "href": "index.html#section-17",
     "title": "",
     "section": "",
     "text": "LLMs are still useful for data analysis\n\n\n\n\nMake it easy for them to be right.\n\n\nMake it matter less when they’re wrong.\n\n\n\n\n\neven with all that, it’ll still make mistakes – humans do, models do – so make it less bad when it’s wrong\nagain, code as foundation"
@@ -245,15 +238,15 @@
     "text": "Have the model pause often\nWhat’s the point of an analysis?\n\n(often) building an understanding of the data\n\n\nanother reason for this though for verification and transparency: the human has to keep pace and see eye-to-eye with the agent (same environment)."
   },
   {
-    "objectID": "index.html#section-19",
-    "href": "index.html#section-19",
+    "objectID": "index.html#section-18",
+    "href": "index.html#section-18",
     "title": "",
     "section": "",
     "text": "LLMs can struggle with tasks central to data analysis.\n\n\n…but they’re still useful for data analysis.\n\n\n\n• Make it easy for them to be right. • Make it matter less when they’re wrong."
   },
   {
-    "objectID": "index.html#section-20",
-    "href": "index.html#section-20",
+    "objectID": "index.html#section-19",
+    "href": "index.html#section-19",
     "title": "",
     "section": "",
     "text": "thank you! \n\n\n\nSlides\nskaltman.github.io/phuse-2026\n\n\nbluffbench\ngithub.com/posit-dev/bluffbench\ngithub.com/posit-dev/bluffbench2\n\n\n\nAI newsletter\n\n\n\n\n\nhttps://opensource.posit.co/tags/ai-newsletter/"

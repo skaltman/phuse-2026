@@ -83,6 +83,15 @@ There is a **strong, negative association.**
 
 :::
 
+::: notes
+about a year ago, we noticed some strange behavior in a coding agent we were working on
+we gave the agent a way to interpret create and interpret plots
+so you could say...
+make a plot of mtcars ...
+interpret...
+only problem is if you look closely that's not a negative relationship
+:::
+
 ## ❓
 
 ```{r}
@@ -92,6 +101,13 @@ There is a **strong, negative association.**
 ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_point(size = 3)
 ```
+
+::: notes
+so whats going on?
+if you're familiar with mtcars (or cars generally) you might know that mpg should _decrease_ with horsepower
+which is exactly the interpretation that the model told us
+but it's not what this plot shows
+:::
 
 ## 🤫
 
@@ -104,6 +120,11 @@ data(mtcars)
 #| eval: false
 mtcars$hp <- max(mtcars$hp) - mtcars$hp
 ```
+
+::: notes
+behind the scenes (unbeknownst to the model)
+we had manipulated mtcars to reverse the relationship between mpg and hp
+:::
 
 ##
 
@@ -127,21 +148,14 @@ There is a **strong, negative association.**
 
 :::
 
-##
+::: notes
+the model appears to give us the canonical relationship
+not the one that's actually in front of it
 
-::: {style="display: flex; flex-direction: column; gap: 0px; padding: 20px; max-width: 100%; margin: 40px auto 0 auto; font-size: 0.85em;"}
-
-::: {style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
-Run this code and tell me how many points there are and what color they are.
-
-```{.r code-line-numbers="|1|2"}
-plot(runif(sample(3:10, 1)),
-     col = rgb(runif(1), runif(1), runif(1)),
-     pch = 16, cex = 2)
-```
+and this would happen not just with mtcars but with a variety of well known datasets
+manipulate a known relationship, and the model will report what it expects to see not what's actually in the plot
 :::
 
-:::
 
 ##
 
@@ -160,6 +174,16 @@ plot(
   cex = 2
 )
 ```
+
+::: notes
+there are a lot of hypotheses you might have for _why_ this is happening
+
+one is that llms (at least at the time) just don't "see" plots very well
+
+maybe for plots that don't contradict expectations, they are relying on other info
+
+one way to test this is to plot some basic points and ask the model to describe the number and color
+:::
 
 ##
 
@@ -214,6 +238,10 @@ LLMs can 'see' these plots just fine
 <span style="color:#093A3E;">posit-dev.github.io/bluffbench</span>
 :::
 
+::: notes
+we turned this into a formal eval called bluffbench and wrote up the results
+:::
+
 ## posit-dev/bluffbench
 
 ![](figures/original-bluffbench-results.png){fig-alt="A horizontal stacked bar chart titled 'Models often report what they expect to see, not what's plotted,' using well-known datasets. For GPT-5, Gemini Pro 2.5, and Claude Sonnet 4.5, each bar is almost entirely the orange Incorrect segment, with only a thin blue Correct sliver. No intervention we tried moved these scores much."}
@@ -223,6 +251,8 @@ LLMs can 'see' these plots just fine
 :::
 
 :::notes
+and at the time, the leading frontier model did very poorly 
+
 We tried a bunch of stuff to drive those scores up and nothing worked.
 Hilariously, we let the model "think", and in its thinking, it would say "Huh, that association doesn't look like I expect", and then turn around and say exactly what it expected to see.
 :::
@@ -235,13 +265,19 @@ Hilariously, we let the model "think", and in its thinking, it would say "Huh, t
 <span style="color:#093A3E;">posit-dev.github.io/bluffbench</span>
 :::
 
+::: notes
+best way to drive up eval scores is just to wait 6 months
+so we waited
+and the scores are much better, but still less than a human would do
+::: 
+
 ## {background-color="#E8F0F6"}
 
 ::: {style="font-size: 1.5em; text-align: center; color: #093A3E;"}
 <br>
 <br>
 <br>
-_Models largely fail to override their own priors about data._
+_Models can fail to override their own priors about data._
 :::
 
 ##
@@ -249,7 +285,7 @@ _Models largely fail to override their own priors about data._
 ##
 
 ::: {style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; margin: 0 0 12px auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"}
-plot bmi vs cholesterol
+plot stress score vs sleep
 :::
 
 ::: {.fragment style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; margin: 0 auto 24px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;"}
@@ -263,25 +299,28 @@ _Calls tool: Run R code_
 #| fig-align: center
 #| fig-width: 5.5
 #| fig-height: 3
-#| fig-alt: "A scatterplot of BMI against cholesterol with a positive trend. A subset of points falls exactly along a straight line."
-set.seed(283)
+#| fig-alt: "A scatterplot of sleep hours against stress score with a negative trend. A subset of points falls exactly along a straight line."
+set.seed(617)
 
 n <- 150
 n_imp <- 35
-bmi <- round(runif(n, 18, 42), 1)
-cholesterol <- round(120 + 2.6 * bmi + rnorm(n, 0, 18), 1)
-
-imp_bmi <- round(runif(n_imp, 20, 40), 1)
-imp_chol <- round(120 + 2.6 * imp_bmi, 1)
-
-bmi_data <- data.frame(
-  bmi = c(bmi, imp_bmi),
-  cholesterol = c(cholesterol, imp_chol)
+sleep_hours <- round(runif(n, 4, 10), 1)
+stress_score <- round(
+  pmin(pmax(95 - 7.5 * sleep_hours + rnorm(n, 0, 8), 5), 95),
+  1
 )
 
-ggplot(bmi_data, aes(x = bmi, y = cholesterol)) +
+imp_sleep <- round(runif(n_imp, 4.5, 9.5), 1)
+imp_stress <- round(95 - 7.5 * imp_sleep, 1)
+
+wellbeing_data <- data.frame(
+  sleep_hours = c(sleep_hours, imp_sleep),
+  stress_score = c(stress_score, imp_stress)
+)
+
+ggplot(wellbeing_data, aes(x = sleep_hours, y = stress_score)) +
   geom_point(alpha = 0.8, size = 1) +
-  labs(x = "BMI", y = "cholesterol") +
+  labs(x = "sleep (hours)", y = "stress score") +
   theme(text = element_text(size = 12))
 ```
 
@@ -289,6 +328,10 @@ ggplot(bmi_data, aes(x = bmi, y = cholesterol)) +
 
 ::: {.fragment style="position: absolute; right: 6%; top: 45%; font-size: 4em; transform: rotate(18deg);"}
 🤨
+:::
+
+::: notes
+suspiciously, some of the plots appear to fall directly on a straight line
 :::
 
 
@@ -299,11 +342,19 @@ ggplot(bmi_data, aes(x = bmi, y = cholesterol)) +
 #| fig-align: center
 #| fig-width: 12
 #| fig-height: 6.5
-#| fig-alt: "The same BMI plot."
-ggplot(bmi_data, aes(x = bmi, y = cholesterol)) +
+#| fig-alt: "The same sleep and stress plot."
+ggplot(wellbeing_data, aes(x = sleep_hours, y = stress_score)) +
   geom_point(alpha = 0.8, size = 2) +
-  labs(x = "BMI", y = "cholesterol")
+  labs(x = "sleep (hours)", y = "stress score")
 ```
+
+::: notes
+stress scores against hours of sleep — overall a plausible negative trend: more sleep, less stress
+but look closely: a subset of points falls _exactly_ on a straight line through the cloud
+those values were imputed with a regression model 
+so they're not real measurements
+a careful analyst would spot that suspicious artifact in the plot and investigate the data further
+:::
 
 ## posit-dev/bluffbench2
 
@@ -342,6 +393,11 @@ bluff2_summary |>
     plot.title = element_text(hjust = 0)
   )
 ```
+
+::: notes
+bluffbench2 is a second gen bluffbench that tests models ability to spot subtle data quality issue like the one you just saw
+the frontier models do a lot worse than on bluffbench 1
+:::
 
 ## {background-color="#E8F0F6"}
 

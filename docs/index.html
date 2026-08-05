@@ -225,16 +225,55 @@
 <p>There is a <strong>strong, negative association.</strong></p>
 </div>
 </div>
+<aside class="notes">
+<p>about a year ago, we noticed some strange behavior in a coding agent we were working on we gave the agent a way to interpret create and interpret plots so you could say… make a plot of mtcars … interpret… only problem is if you look closely that’s not a negative relationship</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-2" class="slide level2">
 <h2>❓</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="The same mtcars plot." width="960"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="The same mtcars plot." width="960"><aside class="notes">
+<p>so whats going on? if you’re familiar with mtcars (or cars generally) you might know that mpg should <em>decrease</em> with horsepower which is exactly the interpretation that the model told us but it’s not what this plot shows</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="section-3" class="slide level2">
 <h2>🤫</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>mtcars<span class="sc">$</span>hp <span class="ot">&lt;-</span> <span class="fu">max</span>(mtcars<span class="sc">$</span>hp) <span class="sc">-</span> mtcars<span class="sc">$</span>hp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<aside class="notes">
+<p>behind the scenes (unbeknownst to the model) we had manipulated mtcars to reverse the relationship between mpg and hp</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
@@ -252,31 +291,50 @@
 <p>There is a <strong>strong, negative association.</strong></p>
 </div>
 </div>
+<aside class="notes">
+<p>the model appears to give us the canonical relationship not the one that’s actually in front of it</p>
+<p>and this would happen not just with mtcars but with a variety of well known datasets manipulate a known relationship, and the model will report what it expects to see not what’s actually in the plot</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-5" class="slide level2">
 <h2></h2>
-<div style="display: flex; flex-direction: column; gap: 0px; padding: 20px; max-width: 100%; margin: 40px auto 0 auto; font-size: 0.85em;">
-<div style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<p>Run this code and tell me how many points there are and what color they are.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">plot</span>(<span class="fu">runif</span>(<span class="fu">sample</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>)),</span>
-<span id="cb2-2"><a></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>)),</span>
-<span id="cb2-3"><a></a>     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">plot</span>(</span>
-<span id="cb3-2"><a></a>  <span class="fu">runif</span>(<span class="fu">sample</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>)),</span>
-<span id="cb3-3"><a></a>  <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>)),</span>
-<span id="cb3-4"><a></a>  <span class="at">pch =</span> <span class="dv">16</span>,</span>
-<span id="cb3-5"><a></a>  <span class="at">cex =</span> <span class="dv">2</span></span>
-<span id="cb3-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">plot</span>(</span>
+<span id="cb2-2"><a></a>  <span class="fu">runif</span>(<span class="fu">sample</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>)),</span>
+<span id="cb2-3"><a></a>  <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>), <span class="fu">runif</span>(<span class="dv">1</span>)),</span>
+<span id="cb2-4"><a></a>  <span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb2-5"><a></a>  <span class="at">cex =</span> <span class="dv">2</span></span>
+<span id="cb2-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A scatterplot of three cyan points." width="960"></section>
-<section id="section-7" class="slide level2">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A scatterplot of three cyan points." width="960"><aside class="notes">
+<p>there are a lot of hypotheses you might have for <em>why</em> this is happening</p>
+<p>one is that llms (at least at the time) just don’t “see” plots very well</p>
+<p>maybe for plots that don’t contradict expectations, they are relying on other info</p>
+<p>one way to test this is to plot some basic points and ask the model to describe the number and color</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-6" class="slide level2">
 <h2></h2>
 <div style="display: flex; flex-direction: column; gap: 0px; padding: 20px; max-width: 100%; margin: 40px auto 0 auto; font-size: 0.85em;">
 <div style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -316,6 +374,19 @@
 <img data-src="figures/bluffbench-post.png" class="quarto-figure quarto-figure-center r-stretch" alt="A browser screenshot of the Posit blog post titled 'When plotting, LLMs see what they expect to see,' written by Simon Couch and Sara Altman. The hero image shows pale scattered dots streaming into a plotting grid on a dark blue background."><div class="footer">
 <p><span style="color:#093A3E;">posit-dev.github.io/bluffbench</span></p>
 </div>
+<aside class="notes">
+<p>we turned this into a formal eval called bluffbench and wrote up the results</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="posit-devbluffbench-1" class="slide level2">
 <h2>posit-dev/bluffbench</h2>
@@ -324,6 +395,7 @@
 <p><span style="color:#093A3E;">posit-dev.github.io/bluffbench</span></p>
 </div>
 <aside class="notes">
+<p>and at the time, the leading frontier model did very poorly</p>
 <p>We tried a bunch of stuff to drive those scores up and nothing worked. Hilariously, we let the model “think”, and in its thinking, it would say “Huh, that association doesn’t look like I expect”, and then turn around and say exactly what it expected to see.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -343,20 +415,33 @@
 <img data-src="https://posit-dev.github.io/bluffbench/index_files/figure-html/plot-bluff-eval-mocked-1.png" alt="A faceted horizontal stacked bar chart of percent correct across many frontier models, split into 'Thinking' and 'No thinking' panels. Thinking models do better, with Claude Fable 5 and Gemini 3.5 Flash near 70 percent, while most non-thinking models sit below 35 percent correct." class="r-stretch"><div class="footer">
 <p><span style="color:#093A3E;">posit-dev.github.io/bluffbench</span></p>
 </div>
+<aside class="notes">
+<p>best way to drive up eval scores is just to wait 6 months so we waited and the scores are much better, but still less than a human would do</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-8" class="slide level2" data-background-color="#E8F0F6">
+<section id="section-7" class="slide level2" data-background-color="#E8F0F6">
 <h2></h2>
 <div style="font-size: 1.5em; text-align: center; color: #093A3E;">
-<p><br> <br> <br> <em>Models largely fail to override their own priors about data.</em></p>
+<p><br> <br> <br> <em>Models can fail to override their own priors about data.</em></p>
 </div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
 </section>
 <section id="section-9" class="slide level2">
 <h2></h2>
-</section>
-<section id="section-10" class="slide level2">
-<h2></h2>
 <div style="align-self: flex-end; background-color: #d6eaf8; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 70%; margin: 0 0 12px auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<p>plot bmi vs cholesterol</p>
+<p>plot stress score vs sleep</p>
 </div>
 <div class="fragment" style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; margin: 0 auto 24px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
 <p><em>Calls tool: Run R code</em></p>
@@ -366,7 +451,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" alt="A scatterplot of BMI against cholesterol with a positive trend. A subset of points falls exactly along a straight line." width="528"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" alt="A scatterplot of sleep hours against stress score with a negative trend. A subset of points falls exactly along a straight line." width="528"></p>
 </figure>
 </div>
 </div>
@@ -375,22 +460,61 @@
 <div class="fragment" style="position: absolute; right: 6%; top: 45%; font-size: 4em; transform: rotate(18deg);">
 <p>🤨</p>
 </div>
+<aside class="notes">
+<p>suspiciously, some of the plots appear to fall directly on a straight line</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-11" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2>🤨</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="The same BMI plot." width="1152"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="The same sleep and stress plot." width="1152"><aside class="notes">
+<p>stress scores against hours of sleep — overall a plausible negative trend: more sleep, less stress but look closely: a subset of points falls <em>exactly</em> on a straight line through the cloud those values were imputed with a regression model so they’re not real measurements a careful analyst would spot that suspicious artifact in the plot and investigate the data further</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="posit-devbluffbench2" class="slide level2">
 <h2>posit-dev/bluffbench2</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A horizontal bar chart of bluffbench2 scores by model. All models score low, with no model reaching half correct." width="960"></section>
-<section id="section-12" class="slide level2" data-background-color="#E8F0F6">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A horizontal bar chart of bluffbench2 scores by model. All models score low, with no model reaching half correct." width="960"><aside class="notes">
+<p>bluffbench2 is a second gen bluffbench that tests models ability to spot subtle data quality issue like the one you just saw the frontier models do a lot worse than on bluffbench 1</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-11" class="slide level2" data-background-color="#E8F0F6">
 <h2></h2>
 <div style="font-size: 1.5em; text-align: center; color: #093A3E;">
 <p><br> <br> <br> <em>Models fail to notice subtle data quality issues that data scientists would not.</em></p>
 </div>
 </section>
-<section id="section-13" class="slide level2" data-background-color="#093A3E">
+<section id="section-12" class="slide level2" data-background-color="#093A3E">
 <h2></h2>
 <div style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;">
 <p><br> LLMs struggle with tasks central to data analysis.</p>
@@ -480,7 +604,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-14" class="slide level2" data-background-color="#093A3E">
+<section id="section-13" class="slide level2" data-background-color="#093A3E">
 <h2></h2>
 <div style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;">
 <p><br> <br> <br> 1. LLMs struggle with tasks central to data analysis.</p>
@@ -499,7 +623,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-15" class="slide level2" data-background-color="#093A3E" data-auto-animate="true">
+<section id="section-14" class="slide level2" data-background-color="#093A3E" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;">
 <p><br> <br> <br></p>
@@ -523,7 +647,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-16" class="slide level2" data-background-color="#E8F0F6" data-auto-animate="true">
+<section id="section-15" class="slide level2" data-background-color="#E8F0F6" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <style>
 .reveal .slides section .fragment.toc-emph { opacity: 1; visibility: inherit; transition: font-weight .2s; }
@@ -612,7 +736,7 @@ Make it matter less when they’re wrong.
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-17" class="slide level2" data-background-color="#E8F0F6">
+<section id="section-16" class="slide level2" data-background-color="#E8F0F6">
 <h2></h2>
 <style>
 .reveal .slides section .fragment.toc-emph { opacity: 1; visibility: inherit; transition: font-weight .2s; }
@@ -746,7 +870,7 @@ Make it matter less when they’re wrong.
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-18" class="slide level2" data-background-color="#E8F0F6">
+<section id="section-17" class="slide level2" data-background-color="#E8F0F6">
 <h2></h2>
 <style>
 .reveal .slides section .fragment.toc-emph { opacity: 1; visibility: inherit; transition: font-weight .2s; }
@@ -868,7 +992,7 @@ Make it matter less when they’re wrong.
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-19" class="slide level2" data-background-color="#093A3E">
+<section id="section-18" class="slide level2" data-background-color="#093A3E">
 <h2></h2>
 <div style="display: flex; flex-direction: column; gap: 44px; max-width: 90%; margin: 60px auto 0 auto; color: #E8F0F6;">
 <div class="fragment">
@@ -884,7 +1008,7 @@ Make it matter less when they’re wrong.
 </div>
 </div>
 </section>
-<section id="section-20" class="slide level2" data-background-image="figures/thankyou-bare.png" data-background-size="cover" data-background-position="center">
+<section id="section-19" class="slide level2" data-background-image="figures/thankyou-bare.png" data-background-size="cover" data-background-position="center">
 <h2></h2>
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 70vh; gap: 40px; transform: translateY(-6vh);">
 <p><span style="color: #093A3E; font-weight: 700; font-size: 2.4em;">thank you!</span> <span style="font-size: 2.4em; margin-left: 0.25em;"></span></p>
