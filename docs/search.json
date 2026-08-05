@@ -32,21 +32,21 @@
     "href": "index.html#section-4",
     "title": "",
     "section": "",
-    "text": "Please plot hp vs mpg in mtcars\n\n\nCalls tool: Run R code\n\n\n\n\n\nThere is a strong, negative association.\n\n\n\nthe model appears to give us the canonical relationship not the one that’s actually in front of it\nand this would happen not just with mtcars but with a variety of well known datasets manipulate a known relationship, and the model will report what it expects to see not what’s actually in the plot"
+    "text": "Please plot hp vs mpg in mtcars\n\n\nCalls tool: Run R code\n\n\n\n\n\nThere is a strong, negative association.\n\n\n\nthe model appears to give us the canonical relationship not the one that’s actually in front of it\nand this would happen not just with mtcars but with a variety of well known datasets manipulate a known relationship, and the model will report what it expects to see not what’s actually in the plot\nthere are a lot of hypotheses you might have for why this is happening\none is that llms (at least at the time) just don’t “see” plots very well\nmaybe for plots that don’t contradict expectations, they are relying on other info"
   },
   {
     "objectID": "index.html#section-5",
     "href": "index.html#section-5",
     "title": "",
     "section": "",
-    "text": "plot(\n  runif(sample(3:10, 1)),\n  col = rgb(runif(1), runif(1), runif(1)),\n  pch = 16,\n  cex = 2\n)\n\n\n\nthere are a lot of hypotheses you might have for why this is happening\none is that llms (at least at the time) just don’t “see” plots very well\nmaybe for plots that don’t contradict expectations, they are relying on other info\none way to test this is to plot some basic points and ask the model to describe the number and color"
+    "text": "plot(\n  runif(sample(3:10, 1)),\n  col = rgb(runif(1), runif(1), runif(1)),\n  pch = 16,\n  cex = 2\n)\n\n\n\none way to test this is to plot some basic points and ask the model to describe the number and color"
   },
   {
     "objectID": "index.html#section-6",
     "href": "index.html#section-6",
     "title": "",
     "section": "",
-    "text": "Run this code and tell me how many points there are and what color they are…\n\n\n\nCalls tool: Run R code\n\n\n\n\n\nThere are 3 cyan points.\n\n\n\n🤨\n\n\nLLMs can ‘see’ these plots just fine"
+    "text": "Run this code and tell me how many points there are and what color they are…\n\n\n\nCalls tool: Run R code\n\n\n\n\n\nThere are 3 cyan points.\n\n\n\nLLMs can ‘see’ these plots just fine"
   },
   {
     "objectID": "index.html#posit-devbluffbench",
@@ -81,7 +81,7 @@
     "href": "index.html#section-9",
     "title": "",
     "section": "",
-    "text": "plot stress score vs sleep\n\n\nCalls tool: Run R code\n\n\n\n\n\n\n\n\n\n\n\n\n\n🤨\n\n\nsuspiciously, some of the plots appear to fall directly on a straight line"
+    "text": "plot stress score vs sleep\n\n\nCalls tool: Run R code\n\n\n\n\n\n\n\n\n\n\n\n\n\n🤨\n\n\nmade a second eval to test ability to spot data quality issues suspiciously, some of the plots appear to fall directly on a straight line"
   },
   {
     "objectID": "index.html#section-10",
@@ -102,14 +102,14 @@
     "href": "index.html#section-11",
     "title": "",
     "section": "",
-    "text": "Models fail to notice subtle data quality issues that data scientists would not."
+    "text": "Models fail to notice subtle data quality issues that data scientists would not.\n\n\nand fail to override priors to accurately interpret plots"
   },
   {
     "objectID": "index.html#section-12",
     "href": "index.html#section-12",
     "title": "",
     "section": "",
-    "text": "LLMs struggle with tasks central to data analysis.\n\n\nFail to override priors about data\nFail to notice subtle data quality issues\n\n\n\n\nbluffbench is evidence llms struggle with tasks central to data analysis\n[click]\noverride priors fail to notice subtle\nboth of these ability to not let expectations get in the way spot data quality issues in visualizations\ncore skills want any person or agent to have"
+    "text": "LLMs struggle with tasks central to data analysis.\n\n\nbluffbench is evidence llms struggle with tasks central to data analysis\nboth of these,\noverride priors notice subtle\ncore skills want any person or agent to have"
   },
   {
     "objectID": "index.html#its-a-convincing-performance",

@@ -154,6 +154,13 @@ not the one that's actually in front of it
 
 and this would happen not just with mtcars but with a variety of well known datasets
 manipulate a known relationship, and the model will report what it expects to see not what's actually in the plot
+
+there are a lot of hypotheses you might have for _why_ this is happening
+
+one is that llms (at least at the time) just don't "see" plots very well
+
+maybe for plots that don't contradict expectations, they are relying on other info
+
 :::
 
 
@@ -176,11 +183,6 @@ plot(
 ```
 
 ::: notes
-there are a lot of hypotheses you might have for _why_ this is happening
-
-one is that llms (at least at the time) just don't "see" plots very well
-
-maybe for plots that don't contradict expectations, they are relying on other info
 
 one way to test this is to plot some basic points and ask the model to describe the number and color
 :::
@@ -222,9 +224,6 @@ There are **3 cyan points.**
 
 :::
 
-::: {.fragment style="position: absolute; right: 40%; top: 55%; font-size: 4em; transform: rotate(18deg);"}
-🤨
-:::
 
 :::notes
 LLMs can 'see' these plots just fine
@@ -331,6 +330,7 @@ ggplot(wellbeing_data, aes(x = sleep_hours, y = stress_score)) +
 :::
 
 ::: notes
+made a second eval to test ability to spot data quality issues
 suspiciously, some of the plots appear to fall directly on a straight line
 :::
 
@@ -408,30 +408,26 @@ the frontier models do a lot worse than on bluffbench 1
 _Models fail to notice subtle data quality issues that data scientists would not._
 :::
 
+::: notes
+
+and fail to override priors to accurately interpret plots
+:::
+
 ## {background-color="#093A3E"}
 
 ::: {style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;"}
 <br>
 LLMs struggle with tasks central to data analysis.
-
-::: {.incremental style="font-size: 0.6em; font-weight: 400; margin-left: 1.5em;"}
-- Fail to override priors about data
-- Fail to notice subtle data quality issues
-:::
 :::
 
 ::: notes
 bluffbench is evidence
 llms struggle with tasks central to data analysis
 
-[click]
+both of these,
 
 override priors
-fail to notice subtle
-
-both of these 
-ability to not let expectations get in the way
-spot data quality issues in visualizations
+notice subtle
 
 core skills 
 want any person or agent to have
@@ -818,7 +814,7 @@ you're seeing eye to eye with the agent, instead of the two of you occupying dif
 Keep pace with the agent during exploration and analysis
 </div>
 <div style="flex: 0 0 auto;">
-<img src="figures/posit-assistant-pause-often.png" alt="A screenshot of the Posit Assistant panel mid-analysis. The assistant has plotted the top 20 states by number of Spanish speakers, summarized the result in a short paragraph noting that raw counts aren't normalized by population, and paused to suggest three follow-up questions rather than continuing on its own." style="height: 580px; display: block;">
+<img src="figures/posit-assistant-pause-often.gif" alt="A screen recording of the Posit Assistant panel mid-analysis. The assistant plots the top 20 states by number of Spanish speakers, summarizes the result in a short paragraph noting that raw counts aren't normalized by population, and pauses to suggest three follow-up questions rather than continuing on its own." style="height: 580px; display: block;">
 </div>
 </div>
 

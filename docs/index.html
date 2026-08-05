@@ -294,6 +294,9 @@
 <aside class="notes">
 <p>the model appears to give us the canonical relationship not the one that’s actually in front of it</p>
 <p>and this would happen not just with mtcars but with a variety of well known datasets manipulate a known relationship, and the model will report what it expects to see not what’s actually in the plot</p>
+<p>there are a lot of hypotheses you might have for <em>why</em> this is happening</p>
+<p>one is that llms (at least at the time) just don’t “see” plots very well</p>
+<p>maybe for plots that don’t contradict expectations, they are relying on other info</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -318,9 +321,6 @@
 
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A scatterplot of three cyan points." width="960"><aside class="notes">
-<p>there are a lot of hypotheses you might have for <em>why</em> this is happening</p>
-<p>one is that llms (at least at the time) just don’t “see” plots very well</p>
-<p>maybe for plots that don’t contradict expectations, they are relying on other info</p>
 <p>one way to test this is to plot some basic points and ask the model to describe the number and color</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -350,9 +350,6 @@
 <div style="align-self: flex-start; background-color: white; padding: 12px 18px; border-radius: 18px 18px 18px 4px; max-width: 70%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
 <p>There are <strong>3 cyan points.</strong></p>
 </div>
-</div>
-<div class="fragment" style="position: absolute; right: 40%; top: 55%; font-size: 4em; transform: rotate(18deg);">
-<p>🤨</p>
 </div>
 <aside class="notes">
 <p>LLMs can ‘see’ these plots just fine</p>
@@ -461,7 +458,7 @@
 <p>🤨</p>
 </div>
 <aside class="notes">
-<p>suspiciously, some of the plots appear to fall directly on a straight line</p>
+<p>made a second eval to test ability to spot data quality issues suspiciously, some of the plots appear to fall directly on a straight line</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -513,23 +510,29 @@
 <div style="font-size: 1.5em; text-align: center; color: #093A3E;">
 <p><br> <br> <br> <em>Models fail to notice subtle data quality issues that data scientists would not.</em></p>
 </div>
+<aside class="notes">
+<p>and fail to override priors to accurately interpret plots</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-12" class="slide level2" data-background-color="#093A3E">
 <h2></h2>
 <div style="font-size: 2em; text-align: left; color: #E8F0F6; font-weight: 700;">
 <p><br> LLMs struggle with tasks central to data analysis.</p>
-<div style="font-size: 0.6em; font-weight: 400; margin-left: 1.5em;">
-<ul>
-<li class="fragment">Fail to override priors about data</li>
-<li class="fragment">Fail to notice subtle data quality issues</li>
-</ul>
-</div>
 </div>
 <aside class="notes">
 <p>bluffbench is evidence llms struggle with tasks central to data analysis</p>
-<p>[click]</p>
-<p>override priors fail to notice subtle</p>
-<p>both of these ability to not let expectations get in the way spot data quality issues in visualizations</p>
+<p>both of these,</p>
+<p>override priors notice subtle</p>
 <p>core skills want any person or agent to have</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -951,7 +954,7 @@ Make it matter less when they’re wrong.
 <p>Keep pace with the agent during exploration and analysis</p>
 </div>
 <div style="flex: 0 0 auto;">
-<p><img src="figures/posit-assistant-pause-often.png" alt="A screenshot of the Posit Assistant panel mid-analysis. The assistant has plotted the top 20 states by number of Spanish speakers, summarized the result in a short paragraph noting that raw counts aren't normalized by population, and paused to suggest three follow-up questions rather than continuing on its own." style="height: 580px; display: block;"></p>
+<p><img src="figures/posit-assistant-pause-often.gif" alt="A screen recording of the Posit Assistant panel mid-analysis. The assistant plots the top 20 states by number of Spanish speakers, summarizes the result in a short paragraph noting that raw counts aren't normalized by population, and pauses to suggest three follow-up questions rather than continuing on its own." style="height: 580px; display: block;"></p>
 </div>
 </div>
 <aside class="notes">
