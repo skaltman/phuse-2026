@@ -18,7 +18,7 @@ knitr:
 
 ::: {style="display:flex; justify-content:flex-end; align-items:flex-start; min-height:80vh; padding-top:6vh; padding-right:0; margin-right:-2%;"}
 ::: {style="width: 80%; text-align: right; font-family:'DM Sans',sans-serif;"}
-<span style="color:#093A3E; font-size:160%; font-weight:600; line-height:1.1; display:block;">Agents for correct, transparent, and reproducible data analysis</span>
+<span style="color:#093A3E; font-size:160%; font-weight:600; line-height:1.1; display:block;">How do we build competent data analysis agents?</span>
 
 <br>
 <br>
