@@ -1,4 +1,4 @@
-# Agents for Correct, Transparent, and Reproducible Data Analysis
+# How do we build competent data analysis agents?
 
 <a href="https://skaltman.github.io/phuse-2026"><img src="figures/title-slide.png" alt="Title slide: Agents for Correct, Transparent, and Reproducible Data Analysis, by Sara Altman, AI Core Team @ Posit" width="100%" /></a>
 
