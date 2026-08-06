@@ -1,8 +1,8 @@
 # How do we build competent data analysis agents?
 
-<a href="https://skaltman.github.io/phuse-2026"><img src="figures/title-slide.png" alt="Title slide: Agents for Correct, Transparent, and Reproducible Data Analysis, by Sara Altman, AI Core Team @ Posit" width="100%" /></a>
+<a href="https://skaltman.github.io/phuse-2026"><img src="figures/title-slide.png" alt="Title slide: How do we build competent data analysis agents? By Sara Altman, AI Core Team @ Posit" width="100%" /></a>
 
-Source code and slides for "Agents for Correct, Transparent, and Reproducible Data Analysis," delivered at a PHUSE SDE. The rendered slides are [here](https://skaltman.github.io/phuse-2026).
+Source code and slides for "How do we build competent data analysis agents?", delivered at a PHUSE SDE. The rendered slides are [here](https://skaltman.github.io/phuse-2026).
 
 Some resources noted in the talk:
 
